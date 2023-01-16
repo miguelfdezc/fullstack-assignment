@@ -9,7 +9,6 @@ import {
 } from '@ngneat/transloco';
 import { Injectable, NgModule } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { LangToggleComponent } from './components/lang-toggle/lang-toggle.component';
 
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +24,6 @@ export class TranslocoHttpLoader implements TranslocoLoader {
   imports: [],
   exports: [
     TranslocoModule,
-    LangToggleComponent
   ],
   providers: [
     {
@@ -42,9 +40,6 @@ export class TranslocoHttpLoader implements TranslocoLoader {
       })
     },
     { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader }
-  ],
-  declarations: [
-    LangToggleComponent
   ]
 })
 export class TranslocoRootModule {}

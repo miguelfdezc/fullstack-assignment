@@ -1,0 +1,54 @@
+@use 'theme';
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mainLayout__header {
+  display: block;
+  width: 100vw;
+}
+  
+.mainLayout__header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xsmall);
+  background-color: var(--color-primary);
+
+  img {
+    height: 3em;
+  }
+}
+
+.mainLayout__header__bottom {
+  display: flex;
+  padding: var(--space-xsmall);
+  justify-content: center;
+  gap: var(--space-xlarge);
+  background-color: var(--color-neutral-variant-2);
+
+  a {
+    @include theme.font-link();
+  }
+}
+
+.mainLayout__content {
+  flex: 1 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainLayout__routerOutletContainer {
+  width: calc(100% - 2 *var(--space-xlarge));
+}
+
+@media screen and (min-width: 1024px) {
+  .mainLayout__routerOutletContainer {
+    max-width: 960px;
+  }
+}

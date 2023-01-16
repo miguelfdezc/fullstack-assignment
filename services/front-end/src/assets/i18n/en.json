@@ -1,4 +1,10 @@
 {
   "locale": "en-US",
-  "empty": " "
+  "empty": " ",
+  "mainLayout": {
+    "links": {
+      "link-home": "Home",
+      "link-forex": "Forex"
+    }
+  }
 }

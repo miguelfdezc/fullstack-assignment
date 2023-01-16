@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subscription } from 'rxjs';
-import { TranslocoLocaleService } from '../../transloco-root.module';
+import { TranslocoLocaleService } from 'src/app/transloco/transloco-root.module';
 
 
 @Component({

@@ -1,3 +1,25 @@
-<div class="mainLayout">
-  <router-outlet></router-outlet>
+<div class="mainLayout" *transloco="let t; read: 'mainLayout'">
+  <div class="mainLayout__header">
+    <div class="mainLayout__header__top">
+      <div class="mainLayout__headerLeftContainer">
+        <img src="/assets/images/planet-logo-white.svg" alt="">
+      </div>
+      <div class="mainLayout__headerLeftContainer">
+        <app-lang-toggle></app-lang-toggle>
+      </div>
+    </div>
+    <div class="mainLayout__header__bottom">
+      <a [routerLink]="['/']">
+        {{t('links.link-home')}}
+      </a>
+      <a [routerLink]="['/forex']">
+        {{t('links.link-forex')}}
+      </a>
+    </div>
+  </div>
+  <div class="mainLayout__content">
+    <div class="mainLayout__routerOutletContainer">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

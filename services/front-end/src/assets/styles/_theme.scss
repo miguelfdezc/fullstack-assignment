@@ -87,6 +87,10 @@
   font-style: normal;
   line-height: var(--font-height-link);
   color: var(--color-blue);
+
+  &:visited {
+    color: var(--color-blue);
+  }
   
   &:hover {
     text-decoration: underline;
