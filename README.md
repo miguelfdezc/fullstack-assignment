@@ -2,12 +2,29 @@
      alt="planet-logo-white-no-bg"
      width="120">
 
-# Planet backend-assignment
-Backend position skill assessment home assignment.
+# Planet fullstack-assignment
+Full-Stack position skill assessment home assignment.
+
+## Context
+As a Full-Stack developer in Planet Dataset, you will be asked to participate in the design
+and implementation of new features that will be used in our price-management platform for
+eCommerce.
+
+New features are geared towards automations and, in our pletform, developing them usually
+involves three different tasks:
+1. Implementing an interface to configure the user's preferences.
+2. Implementing API endpoints to retrieve data such as result examples.
+3. Implementing asyncronous tasks that apply the changes to our clients' stores.
+
+This is the workflow that we tried to replicate in this task. The theme is forex analysis,
+and we will require you to implement an API call to retrieve currencies from the database,
+an asynchronous task to retrieve the data from an external API, and the interface to subscribe
+and list different currencies.
 
 ## Overview
 This repository holds the basic project structure for implementing a NodeJS based API and service
-used in a fictitious software solution that provides stock exchange data services.
+used in a fictitious software solution that provides stock exchange data services. The front-end
+is an Angular app with an NgRX store in case you prefer it for state management.
 
 Disclaimer: The purpose and usage of this repo is solely for insight adquisition regarding problem-solving,
 and does not represent an existing and ongoing implementation task.
@@ -33,15 +50,15 @@ The workflow that the system should support is:
 > _See the docs: [https://www.alphavantage.co/documentation/#crypto-exchange](https://www.alphavantage.co/documentation/#crypto-exchange)_
 
 ## Tasks
-The required functionality can be summarized in the following three tasks:
-- Implement three endpoints for adding (by the currency code), removing and listing the followed currencies.
-     _We don't enforce a REST API design with `[POST]/currency [DELETE]/currency [GET]/currency` endpoints._
+The required functionality can be summarized in the following four tasks:
 - Implement an endpoint for retrieving the exchange price history of the followed currencies. This endpoint
      must allow specifying the currencies to be included and the fields to include; at least the following
      fields must be included: bid, ask, spread, bid-diff (the difference between the bid and the previous
      hour mean bid), ask-diff (the difference between the ask and the previous hour mean ask), and spread-diff
      (the difference between the spread and the previous hour mean spread).
 - Implement the periodic historic data retrieval.
+- Implement the interface to list, follow and unfollow currencies.
+- Implement the interface to list the exchange price history of the followed currencies.
 
 ## Evaluation
 We are in search for a backend developer who is capable of implementing API requirements, can work
