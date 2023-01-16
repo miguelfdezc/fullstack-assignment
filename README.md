@@ -29,7 +29,7 @@ is an Angular app with an NgRX store in case you prefer it for state management.
 Disclaimer: The purpose and usage of this repo is solely for insight acquisition regarding problem-solving,
 and does not represent an existing and ongoing implementation task.
 
-PD: We provide this structure as a starting point but you may discard it and approach the task in
+PS: We provide this structure as a starting point but you may discard it and approach the task in
 any other way.
 
 ## The problem
