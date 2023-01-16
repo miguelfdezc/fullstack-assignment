@@ -10,11 +10,11 @@ As a Full-Stack developer in Planet Dataset, you will be asked to participate in
 and implementation of new features that will be used in our price-management platform for
 eCommerce.
 
-New features are geared towards automations and, in our pletform, developing them usually
+New features are geared towards automations and, in our platform, developing them usually
 involves three different tasks:
 1. Implementing an interface to configure the user's preferences.
 2. Implementing API endpoints to retrieve data such as result examples.
-3. Implementing asyncronous tasks that apply the changes to our clients' stores.
+3. Implementing asynchronous tasks that apply the changes to our clients' stores.
 
 This is the workflow that we tried to replicate in this task. The theme is forex analysis,
 and we will require you to implement an API call to retrieve currencies from the database,
@@ -26,10 +26,10 @@ This repository holds the basic project structure for implementing a NodeJS base
 used in a fictitious software solution that provides stock exchange data services. The front-end
 is an Angular app with an NgRX store in case you prefer it for state management.
 
-Disclaimer: The purpose and usage of this repo is solely for insight adquisition regarding problem-solving,
+Disclaimer: The purpose and usage of this repo is solely for insight acquisition regarding problem-solving,
 and does not represent an existing and ongoing implementation task.
 
-PD: We provide this structure as an starting point but you may discard it and approach the task in
+PD: We provide this structure as a starting point but you may discard it and approach the task in
 any other way.
 
 ## The problem
@@ -55,7 +55,7 @@ The required functionality can be summarized in the following four tasks:
      must allow specifying the currencies to be included and the fields to include; at least the following
      fields must be included: bid, ask, spread, bid-diff (the difference between the bid and the previous
      hour mean bid), ask-diff (the difference between the ask and the previous hour mean ask), and spread-diff
-     (the difference between the spread and the previous hour mean spread).
+     (the difference between the spread and the previous hour's mean spread).
 - Implement the periodic historic data retrieval.
 - Implement the interface to list, follow and unfollow currencies.
 - Implement the interface to list the exchange price history of the followed currencies.
@@ -65,8 +65,8 @@ We are in search for a backend developer who is capable of implementing API requ
 databases and can design "future-proof" (if that even exists) solutions.
 
 Therefore we will evaluate the assignment having the following things in mind:
-- Home assignment completition: Whether you completed all tasks and how you prioritized time.
-- Code versioning: We are not too picky regarding Git, but do appreciate feature branchs and a clean
+- Home assignment completion: Whether you completed all tasks and how you prioritized time.
+- Code versioning: We are not too picky regarding Git, but do appreciate feature branches and a clean
   repo history that could help us understand how you approached this assignment.
 - Task-specific implementation details:
   - Currency endpoints implementation. We would appreciate it if you took into account the following
@@ -76,14 +76,14 @@ Therefore we will evaluate the assignment having the following things in mind:
   - Periodic data retrieval. We would appreciate it if you took into account the following
     aspects: _What would happen if we wanted to support more types of data sources?_
 - Extras: Providing extra documentation, identifying any improvement opportunity (even if you didn't
-  implement it), or having a fluent communication during your process (just let us know how you are
+  implement it), or having fluent communication during your process (just let us know how you are
   doing) will be positively taken into account.
 
 ## Repository structure
-The code is laid down in a monorepo fashion with make commands for easier admin tasks. The three services
-that you can find find are the **api** and **service** services.
+The code is laid down in a mono repo fashion with make commands for easier admin tasks. The three services
+that you can find find are the **API** and **service** services.
 
-The **api** service is an Express server with hot code reloading, while **service** generic service with a
+The **API** service is an Express server with hot code reloading, while **service** generic service with a
 Node setup that runs the script periodically and that you may use -or not- for any recurring process; this
 later service can be run manually without the cron job.
 
