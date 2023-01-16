@@ -61,7 +61,7 @@ The required functionality can be summarized in the following four tasks:
 - Implement the interface to list the exchange price history of the followed currencies.
 
 ## Evaluation
-We are in search for a backend developer who is capable of implementing API requirements, can work
+We are in search for a full-stack developer who is capable of implementing API requirements, can work
 databases and can design "future-proof" (if that even exists) solutions.
 
 Therefore we will evaluate the assignment having the following things in mind:
