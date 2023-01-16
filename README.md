@@ -80,7 +80,7 @@ Therefore we will evaluate the assignment having the following things in mind:
   doing) will be positively taken into account.
 
 ## Repository structure
-The code is laid down in a monorepo fashion with make commands for easier admin tasks. The two services
+The code is laid down in a monorepo fashion with make commands for easier admin tasks. The three services
 that you can find find are the **api** and **service** services.
 
 The **api** service is an Express server with hot code reloading, while **service** generic service with a
@@ -118,9 +118,13 @@ Following is a more-in-depth list of the available command for each service:
      - `service-build` Builds the corresponding Docker images.
      - `backend-run` Executes just once the service.. _Requires having the platform up (you can use make backend-up)_
      - `backend-dev` Executes the service each time the code changes. _Requires having the platform up (you can use make backend-up)_
+     
+- The _services/front-end_ directory holds the code for the Front-end. The following make commands are available:
+     - `frontend-build` Builds the corresponding app dist files.
+     - `frontend-dev` Runs the front-end service locally (accessible at http://localhost:4200). _It will install the dependencies (requires having a local installation of node)._
 ---
 
-# backend-assignment
-Backend position skill assessment home assignment.
+# fullstack-assignment
+Full-Stack position skill assessment home assignment.
 
 **[Place here any extra documentation or comments you want us to have.]**
