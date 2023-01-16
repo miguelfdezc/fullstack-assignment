@@ -1,6 +1,5 @@
-import { CurrencyDoesNotExistError } from "../domain/errors/currency-does-not-exist.error";
-import { ICurrencyRepository } from "../domain/repository/currency-repository.interface";
-import { MongooseCurrencyRepository } from "../infrastructure/repositories/mongoose-currency.repository";
+import { CurrencyDoesNotExistError, ICurrencyRepository } from "../domain";
+import { MongooseCurrencyRepository } from "../infrastructure";
 
 export class UnsubscribeCurrency {
   private currencyRepository: ICurrencyRepository;

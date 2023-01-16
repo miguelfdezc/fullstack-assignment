@@ -3,7 +3,7 @@ import {
   SubscribeCurrency,
   UnsubscribeCurrency,
 } from "src/currency/application";
-import { DomainError } from "src/utils/errors/domain.error";
+import { DomainError } from "src/utils";
 
 export class CurrencyController {
   private subscribeCurrency = new SubscribeCurrency({});

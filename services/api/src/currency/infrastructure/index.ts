@@ -1,3 +1,3 @@
-export * from "./controller";
-export * from "./repositories";
-export * from "./schema";
+export * from "./controller/currency.controller";
+export * from "./repositories/mongoose-currency.repository";
+export * from "./schema/mongoose-currency.schema";

@@ -1,6 +1,9 @@
-import { Currency } from "../domain/models/currency";
-import { ICurrencyRepository } from "../domain/repository/currency-repository.interface";
-import { MongooseCurrencyRepository } from "../infrastructure/repositories/mongoose-currency.repository";
+import {
+  Currency,
+  CurrencyAlreadySubscribedError,
+  ICurrencyRepository,
+} from "../domain";
+import { MongooseCurrencyRepository } from "../infrastructure";
 
 export class SubscribeCurrency {
   private currencyRepository: ICurrencyRepository;
@@ -9,19 +12,17 @@ export class SubscribeCurrency {
   }
 
   async execute(currencyReq) {
-    const currencyDB = await this.currencyRepository.findByCode(
-      currencyReq.code
-    );
+    const currency = await this.currencyRepository.findByCode(currencyReq.code);
 
-    if (currencyDB) {
-      //throw currency already subscribed
+    if (currency && currency.hasSubscription) {
+      return CurrencyAlreadySubscribedError.withCode(currency.code);
     }
 
-    const currency = Currency.create({
+    const newCurrency = Currency.create({
       code: currencyReq.code,
       value: currencyReq.value,
     });
-    await this.currencyRepository.subscribe(currency as Currency);
-    return currency;
+    await this.currencyRepository.subscribe(newCurrency as Currency);
+    return newCurrency;
   }
 }

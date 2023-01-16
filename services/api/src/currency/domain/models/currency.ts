@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { IncorrectCurrencyError } from "../errors/incorrect-currency.error";
+import { IncorrectCurrencyError } from "../errors";
 
 export class Currency {
   private _id: Types.ObjectId;
@@ -12,6 +12,15 @@ export class Currency {
     this._code = code;
     this._hasSubscription = hasSubscription;
     this._value = value;
+  }
+
+  static fromPrimitives({ id, code, hasSubscription, value }) {
+    return new Currency({
+      id: id,
+      code: code,
+      hasSubscription: hasSubscription,
+      value: value,
+    });
   }
 
   static create({
@@ -50,6 +59,6 @@ export class Currency {
   }
 
   unsubscribe() {
-    this._hasSubscription = true;
+    this._hasSubscription = false;
   }
 }
