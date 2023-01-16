@@ -10,11 +10,11 @@ As a Full-Stack developer in Planet Dataset, you will be asked to participate in
 and implementation of new features that will be used in our price-management platform for
 eCommerce.
 
-New features are geared towards automations and, in our pletform, developing them usually
+New features are geared towards automations and, in our platform, developing them usually
 involves three different tasks:
 1. Implementing an interface to configure the user's preferences.
 2. Implementing API endpoints to retrieve data such as result examples.
-3. Implementing asyncronous tasks that apply the changes to our clients' stores.
+3. Implementing asynchronous tasks that apply the changes to our clients' stores.
 
 This is the workflow that we tried to replicate in this task. The theme is forex analysis,
 and we will require you to implement an API call to retrieve currencies from the database,
@@ -26,7 +26,7 @@ and list different currencies.
 
 
 This is a basic Angular 14 project that was generated with [Angular CLI](https://github.com/angular/angular-cli). It is provided
-as a template in case you want a jumpstart. It already has a `forex` module with routing and localization in place so that you
+as a template in case you want a jumpstart. It already has a `forex` module with routing and localization in place so you
 can implement there the UI.
 
 The following libraries are included in case you want to use it:
