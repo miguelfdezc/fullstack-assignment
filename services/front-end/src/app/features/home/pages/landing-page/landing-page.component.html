@@ -1,1 +1,4 @@
-<p>landing-page works!</p>
+<div class="landingPage" *transloco="let t; read: 'home.landingPage'">
+    <p [innerHTML]="t('content.markdown-desc') | markdown">
+    </p>
+</div>

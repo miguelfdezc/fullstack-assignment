@@ -1,0 +1,27 @@
+@use 'theme';
+
+.landingPage {
+  margin-top: var(--space-large);
+  h1 {
+    @include theme.font-h1();
+  }
+
+  h2 {
+    @include theme.font-subtitle();
+  }
+
+  p {
+    @include theme.font-body();
+  }
+
+  a {
+    @include theme.font-link();
+  }
+
+  code {
+    @include theme.font-small();
+    background-color: var(--color-neutral-variant-2);
+    display: inline-block;
+    padding: 0 var(--space-xsmall);
+  }
+}

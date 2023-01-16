@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { RouterModule } from '@angular/router';
 import { routes } from './home.routing';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 export const loader = ['en', 'es'].reduce((acc, lang) => {
@@ -18,6 +19,8 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    TranslocoModule,
+    MarkdownModule,
   ],
   providers: [
     {
