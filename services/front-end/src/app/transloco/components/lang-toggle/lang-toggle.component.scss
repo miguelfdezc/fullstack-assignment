@@ -1,0 +1,13 @@
+.langToggle {
+  planet-button {
+    text-align: center;
+    span {color: var(--color-primary);}
+  }
+}
+
+.langToggle .langToggle__currentLang {
+  pointer-events: none;
+  span {
+    color: var(--color-neutral-variant-1);
+  }
+}

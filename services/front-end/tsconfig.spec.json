@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "files": [
+    "src/testing/window-mock.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.test.ts",
+    "src/**/*.d.ts"
+  ]
+}

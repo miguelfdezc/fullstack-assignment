@@ -1,0 +1,94 @@
+
+@mixin font-h1 {
+  font-size: var(--font-size-h1);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-h1);
+  color: var(--color-neutral);
+}
+
+@mixin font-h2 {
+  font-size: var(--font-size-h2);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-h2);
+  color: var(--color-neutral);
+}
+
+@mixin font-subtitle {
+  font-size: var(--font-size-subtitle);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-subtitle);
+  color: var(--color-neutral);
+}
+
+@mixin font-body {
+  font-size: var(--font-size-body);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-body);
+  color: var(--color-neutral);
+}
+
+@mixin font-bold {
+  font-size: var(--font-size-bold);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-bold);
+  color: var(--color-neutral-variant-1);
+}
+
+@mixin font-small {
+  font-size: var(--font-size-small);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-small);
+  color: var(--color-neutral);
+}
+
+@mixin font-pre {
+  font-size: var(--font-size-pre);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-pre);
+  color: var(--color-neutral);
+}
+
+@mixin font-button {
+  font-size: var(--font-size-button);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-button);
+  color: var(--color-neutral);
+}
+
+@mixin font-link {
+  font-size: var(--font-size-link);
+  text-decoration: none;
+  font-family: Poppins Roboto sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--font-height-link);
+  color: var(--color-blue);
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

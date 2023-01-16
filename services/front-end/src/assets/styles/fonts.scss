@@ -1,0 +1,26 @@
+@mixin fface(
+  $basePath,
+  $family,
+  $type: "",
+  $weight: 400,
+  $style: normal,
+) {
+  @font-face {
+    font-family: $family;
+    src: url("#{$basePath}/#{$family}-#{$type}.ttf");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+$basePath: "/assets/fonts/poppins";
+$family: "Poppins";
+
+@include fface($basePath, $family, "Thin", 100, normal);
+@include fface($basePath, $family, "ThinItalic", 100, italic);
+@include fface($basePath, $family, "Light", 400, normal);
+@include fface($basePath, $family, "LightItalic", 400, italic);
+@include fface($basePath, $family, "Medium", 500, normal);
+@include fface($basePath, $family, "MediumItalic", 500, italic);
+@include fface($basePath, $family, "SemiBold", 700, normal);
+@include fface($basePath, $family, "SemiBoldItalic", 700, italic);

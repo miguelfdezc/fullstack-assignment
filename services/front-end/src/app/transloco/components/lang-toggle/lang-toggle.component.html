@@ -1,0 +1,15 @@
+<div class="langToggle">
+  <button
+      [class]="currentLang == 'es' ? 'langToggle__currentLang' : ''"
+      (click)="setLocalLanguage('es')"
+      shape="squared-link">
+    <span>es</span>
+  </button>
+  /
+  <button
+      [class]="currentLang == 'en' ? 'langToggle__currentLang' : ''"
+      (click)="setLocalLanguage('en')"
+      shape="squared-link">
+    <span>en</span>
+  </button>
+</div>
