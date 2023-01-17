@@ -5,14 +5,7 @@ export class IncorrectCurrencyError extends DomainError {
     super(errMessage);
   }
 
-  static withConfig(code: string, value: number) {
-    throw new IncorrectCurrencyError(
-      `Incorrect currency configuration with code: ${code} and value: ${value}`
-    );
-  }
-  static withValue(value: number) {
-    throw new IncorrectCurrencyError(
-      `Currency value must be greater than zero: ${value}`
-    );
+  static withCode(code: string) {
+    throw new IncorrectCurrencyError(`Invalid currency code : ${code}`);
   }
 }

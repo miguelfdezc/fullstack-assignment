@@ -1,46 +1,34 @@
 import { Types } from "mongoose";
-import { IncorrectCurrencyError } from "../errors";
+import { CurrencyNotSubscribedError, IncorrectCurrencyError } from "../errors";
 
 export class Currency {
   private _id: Types.ObjectId;
   private _code: string;
   private _hasSubscription: boolean;
-  private _value: number;
 
-  private constructor({ id, code, hasSubscription, value }) {
+  private constructor({ id, code, hasSubscription }) {
     this._id = id;
     this._code = code;
     this._hasSubscription = hasSubscription;
-    this._value = value;
   }
 
-  static fromPrimitives({ id, code, hasSubscription, value }) {
+  static fromPrimitives({ id, code, hasSubscription }) {
     return new Currency({
       id: id,
       code: code,
       hasSubscription: hasSubscription,
-      value: value,
     });
   }
 
-  static create({
-    id = new Types.ObjectId(),
-    code,
-    hasSubscription = true,
-    value,
-  }) {
-    if (!code || !value) {
-      return IncorrectCurrencyError.withConfig(code, value);
-    }
-    if (value <= 0) {
-      return IncorrectCurrencyError.withValue(value);
+  static create({ id = new Types.ObjectId(), code, hasSubscription = true }) {
+    if (!code) {
+      return IncorrectCurrencyError.withCode(code);
     }
 
     return new Currency({
       id: id,
       code: code,
       hasSubscription: hasSubscription,
-      value: value,
     });
   }
 
@@ -51,14 +39,16 @@ export class Currency {
   get code(): string {
     return this._code;
   }
+
   get hasSubscription(): boolean {
     return this._hasSubscription;
   }
-  get value(): number {
-    return this._value;
-  }
 
   unsubscribe() {
+    if (!this._hasSubscription) {
+      return CurrencyNotSubscribedError.withCode(this._code);
+    }
+
     this._hasSubscription = false;
   }
 }

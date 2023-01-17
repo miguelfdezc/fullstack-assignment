@@ -18,10 +18,7 @@ export class SubscribeCurrency {
       return CurrencyAlreadySubscribedError.withCode(currency.code);
     }
 
-    const newCurrency = Currency.create({
-      code: currencyReq.code,
-      value: currencyReq.value,
-    });
+    const newCurrency = Currency.create({ code: currencyReq.code });
     await this.currencyRepository.subscribe(newCurrency as Currency);
     return newCurrency;
   }
