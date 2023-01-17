@@ -7,7 +7,6 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       id: currencyDB._id,
       code: currencyDB.code,
       hasSubscription: currencyDB.hasSubscription,
-      value: currencyDB.value,
     });
   }
 
@@ -16,13 +15,20 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       _id: currency.id,
       code: currency.code,
       hasSubscription: currency.hasSubscription,
-      value: currency.value,
     };
   }
 
   async subscribe(currency: Currency): Promise<void> {
     const mongooseCurrency = this.fromDomain(currency);
     await CurrencySchema.create(mongooseCurrency);
+  }
+
+  async findAllSubscriptions(): Promise<Currency[]> {
+    const subscribedCurrencies = await CurrencySchema.find({
+      hasSubscription: true,
+    });
+
+    return subscribedCurrencies.map((currency) => this.toDomain(currency));
   }
 
   async findByCode(code: string): Promise<Nullable<Currency>> {

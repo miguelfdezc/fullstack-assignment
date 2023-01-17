@@ -8,8 +8,12 @@ currencyRouter.post("/api/currency", async (req: Request, res: Response) => {
   currencyController.subscribe(req, res);
 });
 
+currencyRouter.get("/api/currencies", async (req: Request, res: Response) => {
+  currencyController.findAllSubscribedCurrencies(req, res);
+});
+
 currencyRouter.put(
-  "/api/currency/:currencyCode",
+  "/api/currency/:code",
   async (req: Request, res: Response) => {
     currencyController.unsubscribe(req, res);
   }
