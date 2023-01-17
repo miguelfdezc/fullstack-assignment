@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import {
   SubscribeCurrency,
   UnsubscribeCurrency,
-} from "src/currency/application";
-import { DomainError } from "src/utils";
+} from "@app/currency/application";
+import { DomainError } from "@app/utils";
 
 export class CurrencyController {
   private subscribeCurrency = new SubscribeCurrency({});

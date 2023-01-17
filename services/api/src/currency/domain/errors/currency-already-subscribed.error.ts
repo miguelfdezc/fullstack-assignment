@@ -1,4 +1,4 @@
-import { DomainError } from "src/utils";
+import { DomainError } from "@app/utils";
 
 export class CurrencyAlreadySubscribedError extends DomainError {
   constructor(errMessage) {

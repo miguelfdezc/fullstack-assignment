@@ -1,4 +1,4 @@
-import { DomainError } from "src/utils";
+import { DomainError } from "@app/utils";
 
 export class IncorrectCurrencyError extends DomainError {
   constructor(errMessage) {

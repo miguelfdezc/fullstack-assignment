@@ -1,5 +1,5 @@
-import { Currency, ICurrencyRepository } from "src/currency/domain";
-import { Nullable } from "src/utils";
+import { Currency, ICurrencyRepository } from "@app/currency/domain";
+import { Nullable } from "@app/utils";
 import CurrencySchema from "../schema/mongoose-currency.schema";
 export class MongooseCurrencyRepository implements ICurrencyRepository {
   private toDomain(currencyDB) {

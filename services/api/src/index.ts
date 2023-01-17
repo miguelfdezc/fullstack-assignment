@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
-import currencyRouter from "./routes/currency.router";
+import currencyRouter from "@app/routes/currency.router";
 
 // [DB Connection]
 
