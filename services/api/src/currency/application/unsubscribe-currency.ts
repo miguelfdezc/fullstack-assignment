@@ -15,5 +15,6 @@ export class UnsubscribeCurrency {
 
     currency.unsubscribe();
     await this.currencyRepository.unsubscribe(currency);
+    return currency;
   }
 }
