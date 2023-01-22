@@ -1,6 +1,5 @@
 import {
   Currency,
-  CurrencyAlreadySubscribedError,
   ICurrencyRepository,
 } from "../domain";
 import { MongooseCurrencyRepository } from "../infrastructure";
@@ -12,14 +11,14 @@ export class SubscribeCurrency {
   }
 
   async execute(currencyReq) {
-    const currency = await this.currencyRepository.findByCode(currencyReq.code);
-
-    if (currency && currency.hasSubscription) {
-      return CurrencyAlreadySubscribedError.withCode(currency.code);
+    let currency: void | Currency = await this.currencyRepository.findByCode(currencyReq.code);
+    if (currency) {
+      currency.subscribe();
+    } else {
+      currency = Currency.create({ code: currencyReq.code });
     }
 
-    const newCurrency = Currency.create({ code: currencyReq.code });
-    await this.currencyRepository.subscribe(newCurrency as Currency);
-    return newCurrency;
+    await this.currencyRepository.update(currency as Currency);
+    return currency;
   }
 }

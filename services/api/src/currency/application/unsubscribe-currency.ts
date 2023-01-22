@@ -1,4 +1,4 @@
-import { CurrencyDoesNotExistError, ICurrencyRepository } from "../domain";
+import { Currency, CurrencyDoesNotExistError, ICurrencyRepository } from "../domain";
 import { MongooseCurrencyRepository } from "../infrastructure";
 
 export class UnsubscribeCurrency {
@@ -8,13 +8,13 @@ export class UnsubscribeCurrency {
   }
 
   async execute(code: string) {
-    const currency = await this.currencyRepository.findByCode(code);
+    const currency: Currency = await this.currencyRepository.findByCode(code);
     if (!currency) {
       return CurrencyDoesNotExistError.withCode(code);
     }
 
     currency.unsubscribe();
-    await this.currencyRepository.unsubscribe(currency);
+    await this.currencyRepository.update(currency);
     return currency;
   }
 }

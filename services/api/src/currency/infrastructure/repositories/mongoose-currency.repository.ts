@@ -1,4 +1,4 @@
-import { Currency, ICurrencyRepository } from "@app/currency/domain";
+import { Currency, ICurrencyRepository, TimeSerie } from "@app/currency/domain";
 import { Nullable } from "@app/utils";
 import CurrencySchema from "../schema/mongoose-currency.schema";
 export class MongooseCurrencyRepository implements ICurrencyRepository {
@@ -7,6 +7,7 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       id: currencyDB._id,
       code: currencyDB.code,
       hasSubscription: currencyDB.hasSubscription,
+      history: currencyDB.history
     });
   }
 
@@ -15,12 +16,17 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       _id: currency.id,
       code: currency.code,
       hasSubscription: currency.hasSubscription,
+      history: currency.history
     };
   }
 
-  async subscribe(currency: Currency): Promise<void> {
-    const mongooseCurrency = this.fromDomain(currency);
-    await CurrencySchema.create(mongooseCurrency);
+  async update(currency: Currency): Promise<void> {
+    const document = this.fromDomain(currency);
+    await CurrencySchema.updateOne(
+      { _id: currency.id },
+      { $set: document },
+      { upsert: true }
+    );
   }
 
   async findAllSubscriptions(): Promise<Currency[]> {
@@ -36,12 +42,8 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
     return currency === null ? null : this.toDomain(currency);
   }
 
-  async unsubscribe(currency: Currency): Promise<void> {
-    const document = this.fromDomain(currency);
-    await CurrencySchema.updateOne(
-      { _id: currency.id },
-      { $set: document },
-      { upsert: true }
-    );
+  async retrieveForexData(code: string): Promise<TimeSerie[]> {
+    const forexData: TimeSerie[] = await (await this.findByCode(code)).history;
+    return forexData;
   }
 }

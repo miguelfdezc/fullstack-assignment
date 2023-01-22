@@ -19,4 +19,11 @@ currencyRouter.put(
   }
 );
 
+currencyRouter.get(
+  "/api/currency/:code/history",
+  async (req: Request, res: Response) => {
+    currencyController.findCurrencyHistory(req, res);
+  }
+);
+
 export default currencyRouter;
