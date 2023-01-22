@@ -1,4 +1,4 @@
-import { Currency, ICurrencyRepository } from "@app/currency/domain";
+import { Currency, ICurrencyRepository, TimeSerie } from "@app/currency/domain";
 import { Nullable } from "@app/utils";
 import CurrencySchema from "../schema/mongoose-currency.schema";
 export class MongooseCurrencyRepository implements ICurrencyRepository {
@@ -7,6 +7,7 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       id: currencyDB._id,
       code: currencyDB.code,
       hasSubscription: currencyDB.hasSubscription,
+      history: currencyDB.history
     });
   }
 
@@ -15,6 +16,7 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
       _id: currency.id,
       code: currency.code,
       hasSubscription: currency.hasSubscription,
+      history: currency.history
     };
   }
 
@@ -38,5 +40,10 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
   async findByCode(code: string): Promise<Nullable<Currency>> {
     const currency = await CurrencySchema.findOne({ code: code });
     return currency === null ? null : this.toDomain(currency);
+  }
+
+  async retrieveForexData(code: string): Promise<TimeSerie[]> {
+    const forexData: TimeSerie[] = await (await this.findByCode(code)).history;
+    return forexData;
   }
 }
