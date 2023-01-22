@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { CurrencyNotSubscribedError, IncorrectCurrencyError } from "../errors";
+import { CurrencyAlreadySubscribedError, CurrencyNotSubscribedError, IncorrectCurrencyError } from "../errors";
 
 export class Currency {
   private _id: Types.ObjectId;
@@ -42,6 +42,14 @@ export class Currency {
 
   get hasSubscription(): boolean {
     return this._hasSubscription;
+  }
+
+  subscribe() {
+    if (this._hasSubscription) {
+      return CurrencyAlreadySubscribedError.withCode(this._code);
+    }
+
+    this._hasSubscription = true;
   }
 
   unsubscribe() {

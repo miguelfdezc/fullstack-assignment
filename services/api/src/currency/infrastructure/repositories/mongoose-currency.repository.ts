@@ -18,9 +18,13 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
     };
   }
 
-  async subscribe(currency: Currency): Promise<void> {
-    const mongooseCurrency = this.fromDomain(currency);
-    await CurrencySchema.create(mongooseCurrency);
+  async update(currency: Currency): Promise<void> {
+    const document = this.fromDomain(currency);
+    await CurrencySchema.updateOne(
+      { _id: currency.id },
+      { $set: document },
+      { upsert: true }
+    );
   }
 
   async findAllSubscriptions(): Promise<Currency[]> {
@@ -34,14 +38,5 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
   async findByCode(code: string): Promise<Nullable<Currency>> {
     const currency = await CurrencySchema.findOne({ code: code });
     return currency === null ? null : this.toDomain(currency);
-  }
-
-  async unsubscribe(currency: Currency): Promise<void> {
-    const document = this.fromDomain(currency);
-    await CurrencySchema.updateOne(
-      { _id: currency.id },
-      { $set: document },
-      { upsert: true }
-    );
   }
 }
