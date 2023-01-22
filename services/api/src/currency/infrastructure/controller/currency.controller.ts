@@ -3,6 +3,7 @@ import {
   GetSubscribedCurrencies,
   SubscribeCurrency,
   UnsubscribeCurrency,
+  RetrieveForexData,
 } from "@app/currency/application";
 import { DomainError } from "@app/utils";
 
@@ -51,7 +52,7 @@ export class CurrencyController {
     }
   }
 
-  async retrieveForexData(req: Request, res: Response) {
+  async findCurrencyHistory(req: Request, res: Response) {
     try {
       const forexData = await this.retrieveForexData.execute(req.params.code);
       res.status(200).json({ data: forexData });

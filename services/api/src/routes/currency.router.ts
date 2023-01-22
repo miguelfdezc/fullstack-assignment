@@ -22,7 +22,7 @@ currencyRouter.put(
 currencyRouter.get(
   "/api/currency/:code/history",
   async (req: Request, res: Response) => {
-    currencyController.retrieveForexData(req, res);
+    currencyController.findCurrencyHistory(req, res);
   }
 );
 
