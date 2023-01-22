@@ -28,8 +28,8 @@ async function connectToDatabase(connectionUri: string) {
 connectToDatabase(MONGODB_URI);
 
 // [Script execution]
-const retrievedData = retrieveData();
-console.debug(retrievedData);
-
-console.log("Executing service...");
-process.exit(0);
+retrieveData().then((retrievedData) => {
+  console.debug(retrievedData);
+  console.log("Executing service...");
+  process.exit(0);
+});
