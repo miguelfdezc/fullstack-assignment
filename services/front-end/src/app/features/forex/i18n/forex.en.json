@@ -1,1 +1,11 @@
-{}
+{
+  "forex": {
+    "currencies": "Currencies",
+    "following": "Following",
+    "subscribe": "Subscribe",
+    "stopFollowing": "Stop Following",
+    "low": "Low",
+    "high": "High",
+    "yesterday": "Yesterday"
+  }
+}
