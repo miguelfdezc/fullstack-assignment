@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForexLandingPageComponent } from './pages/forex-landing-page/forex-landing-page.component';
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { RouterModule } from '@angular/router';
 import { routes } from './forex.routing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 export const loader = ['en', 'es'].reduce((acc, lang) => {
@@ -18,6 +20,9 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    TranslocoModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     {

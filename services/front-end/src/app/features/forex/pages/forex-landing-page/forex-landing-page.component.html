@@ -1,1 +1,30 @@
-<p>forex-landing-page works!</p>
+<div *transloco="let t; read: 'forex'">
+  <h2>{{ t('forex.currencies') }}</h2>
+
+  <button mat-flat-button color="primary">
+    <mat-icon>add_circle</mat-icon>
+    {{ t('forex.subscribe') }}
+  </button>
+
+  <div *ngFor="let currency of currencies">
+    <p>EUR/{{currency._code}}</p>
+    <span>{{ t('forex.following') }}</span>
+
+    <p>{{currency._history[0].low}}</p>
+    <span>{{ t('forex.low') }}</span>
+    <p>{{currency._history[0].high}}</p>
+    <span>{{ t('forex.high') }}</span>
+
+    <span>{{ t('forex.yesterday') }}</span>
+    
+    <p>{{currency._history[1].low}}</p>
+    <span>{{ t('forex.low') }}</span>
+    <p>{{currency._history[1].high}}</p>
+    <span>{{ t('forex.high') }}</span>
+
+    <button mat-flat-button color="warn">
+      <mat-icon>cancel</mat-icon>
+      {{ t('forex.stopFollowing') }}
+    </button>
+  </div>
+</div>
