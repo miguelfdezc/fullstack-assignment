@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './forex.routing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 
 export const loader = ['en', 'es'].reduce((acc, lang) => {
@@ -22,7 +23,8 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
     RouterModule.forChild(routes),
     TranslocoModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [
     {

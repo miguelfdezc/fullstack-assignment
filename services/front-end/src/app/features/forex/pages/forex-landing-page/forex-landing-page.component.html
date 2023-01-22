@@ -1,4 +1,4 @@
-<div *transloco="let t; read: 'forex'">
+<!-- <div *transloco="let t; read: 'forex'">
   <h2>{{ t('forex.currencies') }}</h2>
 
   <button mat-flat-button color="primary">
@@ -27,4 +27,51 @@
       {{ t('forex.stopFollowing') }}
     </button>
   </div>
-</div>
+</div> -->
+
+<table mat-table [dataSource]="currencies" class="mat-elevation-z8">
+
+  displayedColumns: string[] = ['From', 'To', 'Low (today)', 'High (today)', 'Low (yesterday)', 'High (yesterday)', 'Actions'];
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- From Column -->
+  <ng-container matColumnDef="from_symbol">
+    <th mat-header-cell *matHeaderCellDef> From </th>
+    <td mat-cell *matCellDef="let element">EUR</td>
+  </ng-container>
+
+  <!-- To Column -->
+  <ng-container matColumnDef="to_symbol">
+    <th mat-header-cell *matHeaderCellDef> To </th>
+    <td mat-cell *matCellDef="let element">{{ element._code }}</td>
+  </ng-container>
+
+  <!-- Low Today Column -->
+  <ng-container matColumnDef="low_today">
+    <th mat-header-cell *matHeaderCellDef> Low (today) </th>
+    <td mat-cell *matCellDef="let element">{{ element._history[0].low }}</td>
+  </ng-container>
+
+  <!-- High Today Column -->
+  <ng-container matColumnDef="high_today">
+    <th mat-header-cell *matHeaderCellDef> High (today) </th>
+    <td mat-cell *matCellDef="let element">{{ element._history[0].high }}</td>
+  </ng-container>
+
+  <!-- Low Yesterday Column -->
+  <ng-container matColumnDef="low_yesterday">
+    <th mat-header-cell *matHeaderCellDef> Low (yesterday) </th>
+    <td mat-cell *matCellDef="let element">{{ element._history[1].low }}</td>
+  </ng-container>
+
+  <!-- High Yesterday Column -->
+  <ng-container matColumnDef="high_yesterday">
+    <th mat-header-cell *matHeaderCellDef> High (yesterday) </th>
+    <td mat-cell *matCellDef="let element">{{ element._history[1].high }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
