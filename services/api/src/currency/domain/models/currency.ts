@@ -1,22 +1,26 @@
 import { Types } from "mongoose";
 import { CurrencyAlreadySubscribedError, CurrencyNotSubscribedError, IncorrectCurrencyError } from "../errors";
+import { TimeSerie } from "./timeSerie";
 
 export class Currency {
   private _id: Types.ObjectId;
   private _code: string;
   private _hasSubscription: boolean;
+  private _history: TimeSerie[];
 
-  private constructor({ id, code, hasSubscription }) {
+  private constructor({ id, code, hasSubscription, history }) {
     this._id = id;
     this._code = code;
     this._hasSubscription = hasSubscription;
+    this._history = history;
   }
 
-  static fromPrimitives({ id, code, hasSubscription }) {
+  static fromPrimitives({ id, code, hasSubscription, history }) {
     return new Currency({
       id: id,
       code: code,
       hasSubscription: hasSubscription,
+      history: history
     });
   }
 
@@ -29,6 +33,7 @@ export class Currency {
       id: id,
       code: code,
       hasSubscription: hasSubscription,
+      history: history
     });
   }
 
@@ -42,6 +47,10 @@ export class Currency {
 
   get hasSubscription(): boolean {
     return this._hasSubscription;
+  }
+
+  get history(): TimeSerie[] {
+    return this._history;
   }
 
   subscribe() {
