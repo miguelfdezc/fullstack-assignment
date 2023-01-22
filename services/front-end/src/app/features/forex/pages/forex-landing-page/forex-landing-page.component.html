@@ -13,43 +13,43 @@
   
     <!-- From Column -->
     <ng-container matColumnDef="from_symbol">
-      <th mat-header-cell *matHeaderCellDef>From</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.from_symbol') }}</th>
       <td mat-cell *matCellDef="let element">EUR</td>
     </ng-container>
   
     <!-- To Column -->
     <ng-container matColumnDef="to_symbol">
-      <th mat-header-cell *matHeaderCellDef>To</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.to_symbol') }}</th>
       <td mat-cell *matCellDef="let element">{{ element._code }}</td>
     </ng-container>
   
     <!-- Low Today Column -->
     <ng-container matColumnDef="low_today">
-      <th mat-header-cell *matHeaderCellDef>Low (today)</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.low_today') }}</th>
       <td mat-cell *matCellDef="let element">{{ element._history[0].low }}</td>
     </ng-container>
   
     <!-- High Today Column -->
     <ng-container matColumnDef="high_today">
-      <th mat-header-cell *matHeaderCellDef>High (today)</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.high_today') }}</th>
       <td mat-cell *matCellDef="let element">{{ element._history[0].high }}</td>
     </ng-container>
   
     <!-- Low Yesterday Column -->
     <ng-container matColumnDef="low_yesterday">
-      <th mat-header-cell *matHeaderCellDef>Low (yesterday)</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.low_yesterday') }}</th>
       <td mat-cell *matCellDef="let element">{{ element._history[1].low }}</td>
     </ng-container>
   
     <!-- High Yesterday Column -->
     <ng-container matColumnDef="high_yesterday">
-      <th mat-header-cell *matHeaderCellDef>High (yesterday)</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.high_yesterday') }}</th>
       <td mat-cell *matCellDef="let element">{{ element._history[1].high }}</td>
     </ng-container>
   
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <th mat-header-cell *matHeaderCellDef>{{ t('forex.actions') }}</th>
       <td mat-cell *matCellDef="let element">
         <button mat-flat-button color="warn">
           <mat-icon>cancel</mat-icon>

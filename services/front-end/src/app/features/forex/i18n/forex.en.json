@@ -1,11 +1,14 @@
 {
   "forex": {
     "currencies": "Currencies",
-    "following": "Following",
     "subscribe": "Subscribe",
     "stopFollowing": "Stop Following",
-    "low": "Low",
-    "high": "High",
-    "yesterday": "Yesterday"
+    "from_symbol": "From",
+    "to_symbol": "To",
+    "low_today": "Low (today)",
+    "high_today": "High (today)",
+    "low_yesterday": "Low (yesterday)",
+    "high_yesterday": "High (yesterday)",
+    "actions": "Actions"
   }
 }

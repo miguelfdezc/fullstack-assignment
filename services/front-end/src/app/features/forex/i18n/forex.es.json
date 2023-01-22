@@ -4,8 +4,12 @@
     "following": "Siguiendo",
     "subscribe": "Suscribirse",
     "stopFollowing": "Dejar de seguir",
-    "low": "Bajo",
-    "high": "Alto",
-    "yesterday": "Ayer"
+    "from_symbol": "De",
+    "to_symbol": "A",
+    "low_today": "Bajo (hoy)",
+    "high_today": "Alto (hoy)",
+    "low_yesterday": "Bajo (ayer)",
+    "high_yesterday": "Alto (ayer)",
+    "actions": "Acciones"
   }
 }
