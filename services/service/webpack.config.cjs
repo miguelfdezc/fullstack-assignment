@@ -3,7 +3,8 @@ const nodeExternals = require('webpack-node-externals')
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const path = require('path');
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://root:pass@localhost:27017/testdb';
-var ALPHAVANTAGE_API_KEY = process.env.ALPHAVANTAGE_API_KEY || "OC88HBQUW3XVKURT";
+var API_URL = process.env.API_URL || "https://www.alphavantage.co/query";
+var API_KEY = process.env.API_KEY || "OC88HBQUW3XVKURT";
 var PACKAGE = require('./package.json');
 var version = PACKAGE.version;
 
@@ -47,7 +48,8 @@ const config = {
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(version),
       MONGODB_URI: JSON.stringify(MONGODB_URI),
-      ALPHAVANTAGE_API_KEY: JSON.stringify(ALPHAVANTAGE_API_KEY)
+      API_URL: JSON.stringify(API_URL),
+      API_KEY: JSON.stringify(API_KEY)
     }),
   ],
 };
