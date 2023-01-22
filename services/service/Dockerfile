@@ -7,7 +7,7 @@ RUN /usr/bin/crontab /app/crontab.txt
 WORKDIR /app
 
 # Install the dependenciess
-ENV MONGODB_URI="mongodb://home-assignment-db:27017/testdb"
+ENV MONGODB_URI="mongodb://root:pass@home-assignment-db:27017/testdb?authSource=admin"
 RUN yarn install
 RUN yarn build
 
