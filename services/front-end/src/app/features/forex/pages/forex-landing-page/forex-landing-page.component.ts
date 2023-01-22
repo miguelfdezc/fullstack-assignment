@@ -12,7 +12,7 @@ export class ForexLandingPageComponent implements OnInit {
 
   constructor(private currencyService: CurrencyService) {}
 
-  displayedColumns: string[] = ['from_symbol', 'to_symbol', 'low_today', 'high_today', 'low_yesterday', 'high_yesterday'];
+  displayedColumns: string[] = ['from_symbol', 'to_symbol', 'low_today', 'high_today', 'low_yesterday', 'high_yesterday', 'actions'];
 
   ngOnInit(): void {
     this.getCurrencies();
