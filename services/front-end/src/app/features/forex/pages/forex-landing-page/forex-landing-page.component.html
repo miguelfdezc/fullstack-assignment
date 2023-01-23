@@ -2,7 +2,7 @@
   <h2>{{ t('forex.currencies') }}</h2>
 
   <mat-form-field class="example-form-field">
-    <mat-label>Currency code</mat-label>
+    <mat-label>{{ t('forex.currencyCode') }}</mat-label>
     <input #symbol matInput type="text" [(ngModel)]="code">
     <button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
       <mat-icon>close</mat-icon>
@@ -70,5 +70,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <div *ngIf="currencies.length === 0">No data</div>
+  <div *ngIf="currencies.length === 0">{{ t('forex.noData') }}</div>
 </div>
