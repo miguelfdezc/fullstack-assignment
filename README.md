@@ -168,4 +168,6 @@ cases that we think you could face:
 # fullstack-assignment
 Full-Stack position skill assessment home assignment.
 
-**[Place here any extra documentation or comments you want us to have.]**
+- Fixed subscribe/unsubscribe creation of infinite currencies (changed into update hasSubscription)
+- Implemented the i18n translations for the front-end
+- Used Material Angular
