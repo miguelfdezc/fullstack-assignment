@@ -76,7 +76,7 @@ The workflow that the system should support is:
 
 > We recommend using the [alphavantage API](https://www.alphavantage.co/) for retrieving the data as
 > it is free and the endpoint for retrieving the data is well documented and easy to use.
-> _See the docs: [https://www.alphavantage.co/documentation/#crypto-exchange](https://www.alphavantage.co/documentation/#crypto-exchange)_
+> _See the docs: [https://www.alphavantage.co/documentation/#fx-daily](https://www.alphavantage.co/documentation/#fx-daily)_
 
 ## Tasks
 ### 1. Forex data retrieval
@@ -122,6 +122,12 @@ however you feel it works best.
 
 
 #### What we will evaluate
+- Whether the interface fulfills the functional requirements: it shows the current currency subscriptions along with
+  their data, and it allows adding or removing subscriptions.
+- How functionality is organized though components and services.
+- Efective use of Angular life cycle hooks to perform data subscription and tearing.
+- A coherent implementation of the interface that involves a limited number of spaces, fonts and colors; and the use
+  of CSS3 and SCSS features to keep styles easily maintainable.
 
 ## How to run the services
 We provide you with Makefile rules for you to lift individual services:
