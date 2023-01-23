@@ -1,0 +1,23 @@
+.container {
+  padding-top: 36px;
+}
+
+table {
+  max-height: 300px;
+  overflow: scroll;
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field {
+  margin-right: 12px;
+}
+
+.subscribeBtn {
+  height: 36px;
+}

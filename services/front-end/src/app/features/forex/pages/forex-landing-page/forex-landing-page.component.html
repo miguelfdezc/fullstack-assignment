@@ -1,18 +1,22 @@
-<div *transloco="let t; read: 'forex'">
-  <h2>{{ t('forex.currencies') }}</h2>
+<div class="container" *transloco="let t; read: 'forex'">
+  <div class="header">
+    <h2>{{ t('forex.currencies') }}</h2>
 
-  <mat-form-field class="example-form-field">
-    <mat-label>{{ t('forex.currencyCode') }}</mat-label>
-    <input #symbol matInput type="text" [(ngModel)]="code">
-    <button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <button mat-flat-button color="primary" (click)="subscribe(symbol.value)">
-    <mat-icon>add_circle</mat-icon>
-    {{ t('forex.subscribe') }}
-  </button>
+    <div>
+      <mat-form-field class="form-field">
+        <mat-label>{{ t('forex.currencyCode') }}</mat-label>
+        <input #symbol matInput type="text" [(ngModel)]="code">
+        <button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <button mat-flat-button color="primary" (click)="subscribe(symbol.value)" class="subscribeBtn">
+        <mat-icon>add_circle</mat-icon>
+        {{ t('forex.subscribe') }}
+      </button>
+    </div>
+  </div>
 
   <table mat-table [dataSource]="currencies" class="mat-elevation-z8" *ngIf="currencies.length > 0">
 
