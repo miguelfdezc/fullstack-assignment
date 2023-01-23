@@ -14,7 +14,7 @@
     {{ t('forex.subscribe') }}
   </button>
 
-  <table mat-table [dataSource]="currencies" class="mat-elevation-z8">
+  <table mat-table [dataSource]="currencies" class="mat-elevation-z8" *ngIf="currencies.length > 0">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -69,4 +69,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <div *ngIf="currencies.length === 0">No data</div>
 </div>
