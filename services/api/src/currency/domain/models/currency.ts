@@ -24,7 +24,7 @@ export class Currency {
     });
   }
 
-  static create({ id = new Types.ObjectId(), code, hasSubscription = true }) {
+  static create({ id = new Types.ObjectId(), code, hasSubscription = true, history = [] }) {
     if (!code) {
       return IncorrectCurrencyError.withCode(code);
     }

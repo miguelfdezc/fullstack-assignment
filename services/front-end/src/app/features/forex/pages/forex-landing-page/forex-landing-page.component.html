@@ -1,1 +1,80 @@
-<p>forex-landing-page works!</p>
+<div class="container" *transloco="let t; read: 'forex'">
+  <div class="header">
+    <h2>{{ t('forex.currencies') }}</h2>
+
+    <div>
+      <mat-form-field class="form-field">
+        <mat-label>{{ t('forex.currencyCode') }}</mat-label>
+        <input #symbol matInput type="text" [(ngModel)]="code">
+        <button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <button mat-flat-button color="primary" (click)="subscribe(symbol.value)" class="subscribeBtn">
+        <mat-icon>add_circle</mat-icon>
+        {{ t('forex.subscribe') }}
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="currencies" class="mat-elevation-z8" *ngIf="currencies.length > 0">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- From Column -->
+      <ng-container matColumnDef="from_symbol">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.from_symbol') }}</th>
+        <td mat-cell *matCellDef="let element">EUR</td>
+      </ng-container>
+    
+      <!-- To Column -->
+      <ng-container matColumnDef="to_symbol">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.to_symbol') }}</th>
+        <td mat-cell *matCellDef="let element">{{ element._code }}</td>
+      </ng-container>
+    
+      <!-- Low Today Column -->
+      <ng-container matColumnDef="low_today">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.low_today') }}</th>
+        <td mat-cell *matCellDef="let element">{{ element._history[0]?.low ?? '-' }}</td>
+      </ng-container>
+    
+      <!-- High Today Column -->
+      <ng-container matColumnDef="high_today">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.high_today') }}</th>
+        <td mat-cell *matCellDef="let element">{{ element._history[0]?.high ?? '-' }}</td>
+      </ng-container>
+    
+      <!-- Low Yesterday Column -->
+      <ng-container matColumnDef="low_yesterday">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.low_yesterday') }}</th>
+        <td mat-cell *matCellDef="let element">{{ element._history[1]?.low ?? '-' }}</td>
+      </ng-container>
+    
+      <!-- High Yesterday Column -->
+      <ng-container matColumnDef="high_yesterday">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.high_yesterday') }}</th>
+        <td mat-cell *matCellDef="let element">{{ element._history[1]?.high ?? '-' }}</td>
+      </ng-container>
+    
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>{{ t('forex.actions') }}</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-flat-button color="warn" (click)="unsubscribe(element._code)">
+            <mat-icon>cancel</mat-icon>
+            {{ t('forex.stopFollowing') }}
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <div *ngIf="currencies.length === 0">{{ t('forex.noData') }}</div>
+</div>

@@ -1,0 +1,28 @@
+.container {
+  height: 200px;
+  padding-top: 36px;  
+}
+
+table {
+  width: 100%;
+}
+
+.table-container {
+  height: 300px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field {
+  margin-right: 12px;
+}
+
+.subscribeBtn {
+  height: 36px;
+}

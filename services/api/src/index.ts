@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as express from 'express';
+import * as cors from 'cors';
 import * as mongoose from 'mongoose';
 import currencyRouter from "@app/routes/currency.router";
 
@@ -33,6 +34,7 @@ connectToDatabase(MONGODB_URI);
 // [Express setup]
 
 const app = express(), DIST_DIR = __dirname;
+app.use(cors());
 app.use(express.static(DIST_DIR));
 app.use(express.json());
 app.use(currencyRouter);
