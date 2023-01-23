@@ -1,9 +1,10 @@
 import { Nullable } from "src/utils";
+import { TimeSerie } from "../models";
 import { Currency } from "../models/currency";
 
 export interface ICurrencyRepository {
-  subscribe(currency: Currency): Promise<void>;
+  update(currency: Currency): Promise<void>;
   findAllSubscriptions(): Promise<Currency[]>;
   findByCode(code: string): Promise<Nullable<Currency>>;
-  unsubscribe(currency: Currency): Promise<void>;
+  retrieveForexData(code: string): Promise<TimeSerie[]>;
 }

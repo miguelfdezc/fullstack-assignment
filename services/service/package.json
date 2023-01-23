@@ -17,6 +17,7 @@
     "start": "yarn build && node dist/bundle.cjs "
   },
   "dependencies": {
+    "axios": "^1.2.3",
     "mongoose": "^6.0.12"
   },
   "devDependencies": {

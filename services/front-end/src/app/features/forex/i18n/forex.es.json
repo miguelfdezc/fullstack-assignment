@@ -1,1 +1,17 @@
-{}
+{
+  "forex": {
+    "currencies": "Monedas",
+    "currencyCode": "Código de moneda",
+    "following": "Siguiendo",
+    "subscribe": "Suscribirse",
+    "stopFollowing": "Dejar de seguir",
+    "from_symbol": "De",
+    "to_symbol": "A",
+    "low_today": "Bajo (hoy)",
+    "high_today": "Alto (hoy)",
+    "low_yesterday": "Bajo (ayer)",
+    "high_yesterday": "Alto (ayer)",
+    "actions": "Acciones",
+    "noData": "Sin datos"
+  }
+}

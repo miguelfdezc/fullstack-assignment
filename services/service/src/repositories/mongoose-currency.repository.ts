@@ -1,6 +1,7 @@
-import { Currency, ICurrencyRepository, TimeSerie } from "@app/currency/domain";
-import { Nullable } from "@app/utils";
+import { ICurrencyRepository } from "./currency-repository.interface";
+import { Currency } from "../models/currency";
 import CurrencySchema from "../schema/mongoose-currency.schema";
+
 export class MongooseCurrencyRepository implements ICurrencyRepository {
   private toDomain(currencyDB) {
     return Currency.fromPrimitives({
@@ -35,15 +36,5 @@ export class MongooseCurrencyRepository implements ICurrencyRepository {
     });
 
     return subscribedCurrencies.map((currency) => this.toDomain(currency));
-  }
-
-  async findByCode(code: string): Promise<Nullable<Currency>> {
-    const currency = await CurrencySchema.findOne({ code: code });
-    return currency === null ? null : this.toDomain(currency);
-  }
-
-  async retrieveForexData(code: string): Promise<TimeSerie[]> {
-    const forexData: TimeSerie[] = await (await this.findByCode(code)).history;
-    return forexData;
   }
 }

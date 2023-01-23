@@ -1,1 +1,16 @@
-{}
+{
+  "forex": {
+    "currencies": "Currencies",
+    "currencyCode": "Currency code",
+    "subscribe": "Subscribe",
+    "stopFollowing": "Stop Following",
+    "from_symbol": "From",
+    "to_symbol": "To",
+    "low_today": "Low (today)",
+    "high_today": "High (today)",
+    "low_yesterday": "Low (yesterday)",
+    "high_yesterday": "High (yesterday)",
+    "actions": "Actions",
+    "noData": "No data"
+  }
+}

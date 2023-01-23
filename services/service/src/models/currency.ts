@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { CurrencyAlreadySubscribedError, CurrencyNotSubscribedError, IncorrectCurrencyError } from "../errors";
+import { IncorrectCurrencyError } from "../errors";
 import { TimeSerie } from "./timeSerie";
 
 export class Currency {
@@ -51,21 +51,5 @@ export class Currency {
 
   get history(): TimeSerie[] {
     return this._history;
-  }
-
-  subscribe() {
-    if (this._hasSubscription) {
-      return CurrencyAlreadySubscribedError.withCode(this._code);
-    }
-
-    this._hasSubscription = true;
-  }
-
-  unsubscribe() {
-    if (!this._hasSubscription) {
-      return CurrencyNotSubscribedError.withCode(this._code);
-    }
-
-    this._hasSubscription = false;
   }
 }
