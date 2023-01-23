@@ -1,11 +1,16 @@
 .container {
-  padding-top: 36px;
+  height: 200px;
+  padding-top: 36px;  
 }
 
 table {
-  max-height: 300px;
-  overflow: scroll;
   width: 100%;
+}
+
+.table-container {
+  height: 300px;
+  max-width: 100%;
+  overflow: auto;
 }
 
 .header {
