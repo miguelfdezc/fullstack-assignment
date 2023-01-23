@@ -2,14 +2,14 @@
   <h2>{{ t('forex.currencies') }}</h2>
 
   <mat-form-field class="example-form-field">
-    <mat-label>Clearable input</mat-label>
-    <input matInput type="text" [(ngModel)]="value">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-label>Currency code</mat-label>
+    <input #symbol matInput type="text" [(ngModel)]="code">
+    <button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 
-  <button mat-flat-button color="primary">
+  <button mat-flat-button color="primary" (click)="subscribe(symbol.value)">
     <mat-icon>add_circle</mat-icon>
     {{ t('forex.subscribe') }}
   </button>
@@ -59,7 +59,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>{{ t('forex.actions') }}</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-flat-button color="warn">
+        <button mat-flat-button color="warn" (click)="unsubscribe(element._code)">
           <mat-icon>cancel</mat-icon>
           {{ t('forex.stopFollowing') }}
         </button>

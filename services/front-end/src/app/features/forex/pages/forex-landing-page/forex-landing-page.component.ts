@@ -9,6 +9,7 @@ import { CurrencyService } from '../../currency.service';
 })
 export class ForexLandingPageComponent implements OnInit {
   currencies: Currency[] = [];
+  code: string;
 
   constructor(private currencyService: CurrencyService) {}
 
@@ -24,10 +25,12 @@ export class ForexLandingPageComponent implements OnInit {
   }
 
   subscribe(code: string): void {
-    this.currencyService.subscribe(code);
+    this.currencyService.subscribe(code)
+    .subscribe(() => this.getCurrencies());
   }
 
   unsubscribe(code: string): void {
-    this.currencyService.unsubscribe(code);
+    this.currencyService.unsubscribe(code)
+    .subscribe(() => this.getCurrencies());
   }
 }
